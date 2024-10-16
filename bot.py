@@ -5,12 +5,10 @@ import datetime
 from decimal import Decimal
 import requests
 
-print(Fore.GREEN + "░▒▓████████▓▒░▒▓██████▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░" + Style.RESET_ALL)
-print(Fore.GREEN + "   ░▒▓█▓▒░  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░" + Style.RESET_ALL)
-print(Fore.GREEN + "   ░▒▓█▓▒░  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░" + Style.RESET_ALL)
-print(Fore.GREEN + "   ░▒▓█▓▒░  ░▒▓████████▓▒░▒▓█▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░" + Style.RESET_ALL)
-print(Fore.GREEN + "   ░▒▓█▓▒░  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░" + Style.RESET_ALL)
-print(Fore.GREEN + "   ░▒▓█▓▒░  ░▒▓██████▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░" + Style.RESET_ALL)
+print(Fore.GREEN + "▗▄▄▄▖▗▄▄▄▖▗▖ ▗▖ ▗▄▖ " + Style.RESET_ALL)
+print(Fore.GREEN + "▐▌   ▐▌   ▐▌▗▞▘▐▌ ▐▌" + Style.RESET_ALL)
+print(Fore.GREEN + "▐▛▀▀▘▐▛▀▀▘▐▛▚▖ ▐▌ ▐▌" + Style.RESET_ALL)
+print(Fore.GREEN + "▐▙▄▄▖▐▙▄▄▖▐▌ ▐▌▝▚▄▞▘" + Style.RESET_ALL)
 print(Fore.GREEN + "t.me/dpangestuw31" + Style.RESET_ALL)
 
 # Inisialisasi colorama
@@ -74,7 +72,7 @@ def get_fixed_gas_price():
     return web3.to_wei(Decimal("0.050000001"), 'gwei')
 
 # Fungsi untuk mengirim transaksi dan menangani kesalahan dengan retry
-def send_transaction_with_retry(transaction, max_retries=3, delay=60):
+def send_transaction_with_retry(transaction, max_retries=5, delay=60):
     retries = 0
     while retries < max_retries:
         try:
@@ -82,7 +80,7 @@ def send_transaction_with_retry(transaction, max_retries=3, delay=60):
             tx_hash = web3.eth.send_raw_transaction(signed_txn.raw_transaction)
             
             # Tunggu transaksi dikonfirmasi
-            receipt = web3.eth.wait_for_transaction_receipt(tx_hash, timeout=120)
+            receipt = web3.eth.wait_for_transaction_receipt(tx_hash, timeout=270)
             return tx_hash  # Jika berhasil, return hash transaksi
         except web3.exceptions.TimeExhausted:
             retries += 1
@@ -147,7 +145,7 @@ def wait_until_morning():
 def auto_wrap_unwrap():
     wrap_count = 0
     unwrap_count = 0
-    max_transactions = 2
+    max_transactions = 104
 
     while True:
         eth_balance, weth_balance = get_balances()
@@ -169,7 +167,7 @@ def auto_wrap_unwrap():
         
         # Jika sudah mencapai batas maksimum transaksi unwrap
         if unwrap_count >= max_transactions:
-            send_telegram_notification(f"Batas maksimum transaksi unwrap tercapai. Saldo ETH: {eth_balance} ETH.")
+            send_telegram_notification(f"Sudah 208 tx bos. Saldo ETH: {eth_balance} ETH.")
             wait_until_morning()  # Tunggu hingga jam 7 pagi sebelum melanjutkan
             unwrap_count = 0  # Reset counter unwrap setelah menunggu
             
