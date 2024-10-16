@@ -167,7 +167,7 @@ def auto_wrap_unwrap():
         
         # Jika sudah mencapai batas maksimum transaksi unwrap
         if unwrap_count >= max_transactions:
-            send_telegram_notification(f"Sudah 208 tx bos. Saldo ETH: {eth_balance} ETH.")
+            send_telegram_notification(f"Sudah 208 tx bos. Saldo ETH: {eth_balance} | Saldo WETH: {weth_balance}.")
             wait_until_morning()  # Tunggu hingga jam 7 pagi sebelum melanjutkan
             unwrap_count = 0  # Reset counter unwrap setelah menunggu
             
