@@ -80,11 +80,13 @@ def send_transaction_with_retry(transaction, max_retries=5, delay=60):
             tx_hash = web3.eth.send_raw_transaction(signed_txn.raw_transaction)
             
             # Tunggu transaksi dikonfirmasi
-            receipt = web3.eth.wait_for_transaction_receipt(tx_hash, timeout=270)
+            receipt = web3.eth.wait_for_transaction_receipt(tx_hash, timeout=275)
             return tx_hash  # Jika berhasil, return hash transaksi
         except web3.exceptions.TimeExhausted:
             retries += 1
-            print(f"Transaksi tidak ditemukan di chain setelah 120 detik. Mencoba ulang ({retries}/{max_retries})...")
+            message = f"Transaksi tidak ditemukan di chain setelah 275 detik. Mencoba ulang ({retries}/{max_retries})..."
+            print(message)
+            send_telegram_notification(message)  # Kirim notifikasi ke Telegram
             time.sleep(delay)  # Tunggu sebelum mencoba ulang
     raise Exception("Transaksi gagal setelah beberapa kali percobaan")
 
