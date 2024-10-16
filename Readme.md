@@ -1,6 +1,7 @@
 ## Deskripsi
 
 Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopanan dan kebersihan, kata tersebut diganti dengan "ee."
+Nilai **wrap** dari ETH adalah 90% dari total nilai ETH yang tersedia. Sebagai contoh, jika total nilai ETH adalah 100, maka nilai wrap yang dihasilkan adalah 90. Nilai **unwrap** adalah sama dengan nilai saat wrap dilakukan, sehingga pengguna dapat mengharapkan konsistensi dalam nilai ketika melakukan proses unwrap.
 
 ## Fitur
 
