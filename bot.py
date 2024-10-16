@@ -62,11 +62,11 @@ erc20_abi = [
 # Load contract WETH
 weth_contract = web3.eth.contract(address=WETH_CONTRACT_ADDRESS, abi=erc20_abi)
 
-# Fungsi untuk mendapatkan saldo ETH dan WETH
-def get_balances():
-    eth_balance = Decimal(web3.from_wei(web3.eth.get_balance(address), 'ether'))
-    weth_balance = Decimal(web3.from_wei(weth_contract.functions.balanceOf(address).call(), 'ether'))
-    return eth_balance, weth_balance
+# Fungsi untuk mendapatkan saldo ETH dan WETH dalam Wei
+def get_balances_in_wei():
+    eth_balance_wei = web3.eth.get_balance(address)
+    weth_balance_wei = weth_contract.functions.balanceOf(address).call()
+    return eth_balance_wei, weth_balance_wei
 
 # Fungsi untuk mendapatkan gas price dinamis (nilai tetap)
 def get_fixed_gas_price():
@@ -82,29 +82,29 @@ def send_transaction(transaction):
     return tx_hash
 
 # Fungsi untuk melakukan wrapping ETH ke WETH
-def wrap_eth_to_weth(amount):
+def wrap_eth_to_weth(amount_wei):
     gas_price = get_fixed_gas_price()
     transaction = weth_contract.functions.deposit().build_transaction({
         'from': address,
-        'value': web3.to_wei(amount, 'ether'),
+        'value': amount_wei,
         'nonce': web3.eth.get_transaction_count(address),
         'gas': 70000,
         'gasPrice': gas_price
     })
     tx_hash = send_transaction(transaction)
-    print(f"{Fore.GREEN}Transaksi wrap {amount} ETH ke WETH (Tx Hash: {tx_hash.hex()})")
+    print(f"{Fore.GREEN}Transaksi wrap {web3.from_wei(amount_wei, 'ether')} ETH ke WETH (Tx Hash: {tx_hash.hex()})")
 
 # Fungsi untuk melakukan unwrapping WETH ke ETH
-def unwrap_weth_to_eth(amount):
+def unwrap_weth_to_eth(amount_wei):
     gas_price = get_fixed_gas_price()
-    transaction = weth_contract.functions.withdraw(web3.to_wei(amount, 'ether')).build_transaction({
+    transaction = weth_contract.functions.withdraw(amount_wei).build_transaction({
         'from': address,
         'nonce': web3.eth.get_transaction_count(address),
         'gas': 70000,
         'gasPrice': gas_price
     })
     tx_hash = send_transaction(transaction)
-    print(f"{Fore.GREEN}Transaksi unwrap {amount} WETH ke ETH (Tx Hash: {tx_hash.hex()})")
+    print(f"{Fore.GREEN}Transaksi unwrap {web3.from_wei(amount_wei, 'ether')} WETH ke ETH (Tx Hash: {tx_hash.hex()})")
 
 # Fungsi untuk mengirim notifikasi ke Telegram
 def send_telegram_notification(message):
@@ -127,36 +127,36 @@ def wait_until_morning():
 
 # Fungsi utama untuk pengecekan saldo dan wrap/unwrap otomatis
 def auto_wrap_unwrap():
-    last_wrap_amount = Decimal(0)  # Untuk menyimpan jumlah terakhir yang di-wrap
+    last_wrap_amount_wei = 0  # Untuk menyimpan jumlah terakhir yang di-wrap dalam wei
     unwrap_count = 0
     max_unwrap_count = 104
-    tolerance = Decimal("0.00000000001")  # Toleransi perbedaan saldo yang sangat kecil
+    tolerance_wei = web3.to_wei(Decimal("0.0000001"), 'ether')  # Toleransi perbedaan saldo dalam wei
 
     while True:
-        eth_balance, weth_balance = get_balances()
-        print(f"{Fore.CYAN}Saldo ETH: {eth_balance} | Saldo WETH: {weth_balance}")
+        eth_balance_wei, weth_balance_wei = get_balances_in_wei()
+        print(f"{Fore.CYAN}Saldo ETH: {web3.from_wei(eth_balance_wei, 'ether')} | Saldo WETH: {web3.from_wei(weth_balance_wei, 'ether')}")
         
-        # Bandingkan dengan toleransi untuk menghindari kesalahan perbandingan pada nilai kecil
-        if eth_balance > weth_balance + tolerance:
+        # Bandingkan saldo ETH dan WETH dalam Wei dengan toleransi
+        if eth_balance_wei > weth_balance_wei + tolerance_wei:
             # Wrap 90% dari saldo ETH
-            wrap_amount = eth_balance * Decimal(0.9)
-            last_wrap_amount = wrap_amount  # Simpan jumlah yang di-wrap
-            print(f"{Fore.YELLOW}Saldo ETH lebih banyak. Melakukan wrap {wrap_amount} ETH ke WETH...")
-            wrap_eth_to_weth(wrap_amount)
-        elif weth_balance > eth_balance + tolerance and last_wrap_amount > 0 and unwrap_count < max_unwrap_count:
+            wrap_amount_wei = eth_balance_wei * 90 // 100  # 90% dari saldo ETH dalam wei
+            last_wrap_amount_wei = wrap_amount_wei  # Simpan jumlah yang di-wrap dalam wei
+            print(f"{Fore.YELLOW}Saldo ETH lebih banyak. Melakukan wrap {web3.from_wei(wrap_amount_wei, 'ether')} ETH ke WETH...")
+            wrap_eth_to_weth(wrap_amount_wei)
+        elif weth_balance_wei > eth_balance_wei + tolerance_wei and last_wrap_amount_wei > 0 and unwrap_count < max_unwrap_count:
             # Unwrap jumlah yang sama dengan wrap terakhir
-            print(f"{Fore.YELLOW}Saldo WETH lebih banyak. Melakukan unwrap {last_wrap_amount} WETH ke ETH...")
-            unwrap_weth_to_eth(last_wrap_amount)
+            print(f"{Fore.YELLOW}Saldo WETH lebih banyak. Melakukan unwrap {web3.from_wei(last_wrap_amount_wei, 'ether')} WETH ke ETH...")
+            unwrap_weth_to_eth(last_wrap_amount_wei)
             unwrap_count += 1
-            last_wrap_amount = Decimal(0)  # Reset setelah unwrap
+            last_wrap_amount_wei = 0  # Reset setelah unwrap
             print(f"{Fore.CYAN}Jumlah unwrap: {unwrap_count} dari {max_unwrap_count}")
         else:
             print(f"{Fore.YELLOW}Saldo ETH dan WETH dianggap seimbang (dalam toleransi). Tidak ada tindakan yang diperlukan.")
         
         # Cek apakah sudah mencapai batas maksimum unwrap
         if unwrap_count >= max_unwrap_count:
-            eth_balance, _ = get_balances()
-            message = f"Unwrap telah mencapai 104 kali. Saldo ETH saat ini: {eth_balance} ETH."
+            eth_balance_wei, _ = get_balances_in_wei()
+            message = f"Unwrap telah mencapai 104 kali. Saldo ETH saat ini: {web3.from_wei(eth_balance_wei, 'ether')} ETH."
             send_telegram_notification(message)
             wait_until_morning()
             unwrap_count = 0  # Reset counter setelah menunggu hingga pagi
