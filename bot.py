@@ -3,9 +3,13 @@ import time
 from colorama import Fore, Style, init
 import datetime
 import requests
+from decimal import Decimal, getcontext
 
 # Inisialisasi colorama
 init(autoreset=True)
+
+# Atur presisi untuk Decimal
+getcontext().prec = 18
 
 # RPC URL dan WETH contract address
 RPC_URL = "https://rpc.ankr.com/taiko"
@@ -60,13 +64,13 @@ weth_contract = web3.eth.contract(address=WETH_CONTRACT_ADDRESS, abi=erc20_abi)
 
 # Fungsi untuk mendapatkan saldo ETH dan WETH
 def get_balances():
-    eth_balance = web3.eth.get_balance(address)
-    weth_balance = weth_contract.functions.balanceOf(address).call()
-    return web3.from_wei(eth_balance, 'ether'), web3.from_wei(weth_balance, 'ether')
+    eth_balance = Decimal(web3.from_wei(web3.eth.get_balance(address), 'ether'))
+    weth_balance = Decimal(web3.from_wei(weth_contract.functions.balanceOf(address).call(), 'ether'))
+    return eth_balance, weth_balance
 
 # Fungsi untuk mendapatkan gas price dinamis (nilai tetap)
 def get_fixed_gas_price():
-    return web3.to_wei(0.050000001, 'gwei')
+    return web3.to_wei(Decimal("0.050000001"), 'gwei')
 
 # Fungsi untuk mengirim transaksi
 def send_transaction(transaction):
@@ -123,7 +127,7 @@ def wait_until_morning():
 
 # Fungsi utama untuk pengecekan saldo dan wrap/unwrap otomatis
 def auto_wrap_unwrap():
-    last_wrap_amount = 0  # Untuk menyimpan jumlah terakhir yang di-wrap
+    last_wrap_amount = Decimal(0)  # Untuk menyimpan jumlah terakhir yang di-wrap
     unwrap_count = 0
     max_unwrap_count = 104
 
@@ -133,7 +137,7 @@ def auto_wrap_unwrap():
         
         if eth_balance > weth_balance:
             # Wrap 90% dari saldo ETH
-            wrap_amount = eth_balance * 0.9
+            wrap_amount = eth_balance * Decimal(0.9)
             last_wrap_amount = wrap_amount  # Simpan jumlah yang di-wrap
             print(f"{Fore.YELLOW}Saldo ETH lebih banyak. Melakukan wrap {wrap_amount} ETH ke WETH...")
             wrap_eth_to_weth(wrap_amount)
@@ -142,13 +146,13 @@ def auto_wrap_unwrap():
             print(f"{Fore.YELLOW}Saldo WETH lebih banyak. Melakukan unwrap {last_wrap_amount} WETH ke ETH...")
             unwrap_weth_to_eth(last_wrap_amount)
             unwrap_count += 1
-            last_wrap_amount = 0  # Reset setelah unwrap
+            last_wrap_amount = Decimal(0)  # Reset setelah unwrap
             print(f"{Fore.CYAN}Jumlah unwrap: {unwrap_count} dari {max_unwrap_count}")
         else:
             print(f"{Fore.YELLOW}Saldo ETH dan WETH seimbang. Tidak ada tindakan yang diperlukan.")
         
         # Cek apakah sudah mencapai batas maksimum unwrap
-        if unwrap_count >= max_unwrap_count:
+        if unwrap_count <= max_unwrap_count:
             eth_balance, _ = get_balances()
             message = f"Unwrap telah mencapai 104 kali. Saldo ETH saat ini: {eth_balance} ETH."
             send_telegram_notification(message)
