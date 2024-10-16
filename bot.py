@@ -147,7 +147,7 @@ def wait_until_morning():
 def auto_wrap_unwrap():
     wrap_count = 0
     unwrap_count = 0
-    max_transactions = 104
+    max_transactions = 2
 
     while True:
         eth_balance, weth_balance = get_balances()
