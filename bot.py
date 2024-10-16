@@ -152,7 +152,7 @@ def auto_wrap_unwrap():
             print(f"{Fore.YELLOW}Saldo ETH dan WETH seimbang. Tidak ada tindakan yang diperlukan.")
         
         # Cek apakah sudah mencapai batas maksimum unwrap
-        if unwrap_count <= max_unwrap_count:
+        if unwrap_count >= max_unwrap_count:
             eth_balance, _ = get_balances()
             message = f"Unwrap telah mencapai 104 kali. Saldo ETH saat ini: {eth_balance} ETH."
             send_telegram_notification(message)
