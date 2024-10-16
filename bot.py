@@ -20,7 +20,7 @@ with open('pvkey.txt', 'r') as f:
     PRIVATE_KEY = f.read().strip()
 
 # Telegram bot info
-TELEGRAM_BOT_TOKEN = "7482058034:AAGnXDqvNVOZ5gle4Jw0YOMjG6JD4KnP1KI"
+TELEGRAM_BOT_TOKEN = "6405568722:AAHijXOLIOAwiR5vhrhn7qlN4bITPb3tbB4"
 TELEGRAM_CHAT_ID = "6644783233"
 
 # Koneksi ke jaringan Taiko
@@ -130,18 +130,20 @@ def auto_wrap_unwrap():
     last_wrap_amount = Decimal(0)  # Untuk menyimpan jumlah terakhir yang di-wrap
     unwrap_count = 0
     max_unwrap_count = 104
+    tolerance = Decimal("0.0000001")  # Toleransi perbedaan saldo yang sangat kecil
 
     while True:
         eth_balance, weth_balance = get_balances()
         print(f"{Fore.CYAN}Saldo ETH: {eth_balance} | Saldo WETH: {weth_balance}")
         
-        if eth_balance > weth_balance:
+        # Bandingkan dengan toleransi untuk menghindari kesalahan perbandingan pada nilai kecil
+        if eth_balance > weth_balance + tolerance:
             # Wrap 90% dari saldo ETH
             wrap_amount = eth_balance * Decimal(0.9)
             last_wrap_amount = wrap_amount  # Simpan jumlah yang di-wrap
             print(f"{Fore.YELLOW}Saldo ETH lebih banyak. Melakukan wrap {wrap_amount} ETH ke WETH...")
             wrap_eth_to_weth(wrap_amount)
-        elif weth_balance > eth_balance and last_wrap_amount > 0 and unwrap_count < max_unwrap_count:
+        elif weth_balance > eth_balance + tolerance and last_wrap_amount > 0 and unwrap_count < max_unwrap_count:
             # Unwrap jumlah yang sama dengan wrap terakhir
             print(f"{Fore.YELLOW}Saldo WETH lebih banyak. Melakukan unwrap {last_wrap_amount} WETH ke ETH...")
             unwrap_weth_to_eth(last_wrap_amount)
@@ -149,7 +151,7 @@ def auto_wrap_unwrap():
             last_wrap_amount = Decimal(0)  # Reset setelah unwrap
             print(f"{Fore.CYAN}Jumlah unwrap: {unwrap_count} dari {max_unwrap_count}")
         else:
-            print(f"{Fore.YELLOW}Saldo ETH dan WETH seimbang. Tidak ada tindakan yang diperlukan.")
+            print(f"{Fore.YELLOW}Saldo ETH dan WETH dianggap seimbang (dalam toleransi). Tidak ada tindakan yang diperlukan.")
         
         # Cek apakah sudah mencapai batas maksimum unwrap
         if unwrap_count >= max_unwrap_count:
