@@ -1,3 +1,5 @@
+<img width="476" alt="image" src="https://github.com/user-attachments/assets/f04ac3fe-6e2b-4d3c-bc34-48371d873bb4">
+
 ## Deskripsi
 
 Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopanan dan kebersihan, kata tersebut diganti dengan "ee."
@@ -29,4 +31,5 @@ Nilai **wrap** dari ETH adalah 90% dari total nilai ETH yang tersedia. Sebagai c
    - Sesuaikan pengaturan maksimum transaksi sesuai dengan kebutuhan Anda.
    - Masukkan token Telegram untuk notifikasi.
 
-![Notifikasi](assets/screenshot.png)
+![Notifikasi](<img width="489" alt="image" src="https://github.com/user-attachments/assets/26578778-228e-4989-9254-a2f2f1c39f1f">
+)
