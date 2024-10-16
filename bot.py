@@ -130,7 +130,7 @@ def auto_wrap_unwrap():
     last_wrap_amount = Decimal(0)  # Untuk menyimpan jumlah terakhir yang di-wrap
     unwrap_count = 0
     max_unwrap_count = 104
-    tolerance = Decimal("0.0000001")  # Toleransi perbedaan saldo yang sangat kecil
+    tolerance = Decimal("0.00000000001")  # Toleransi perbedaan saldo yang sangat kecil
 
     while True:
         eth_balance, weth_balance = get_balances()
