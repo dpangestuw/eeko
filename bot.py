@@ -20,7 +20,7 @@ with open('pvkey.txt', 'r') as f:
     PRIVATE_KEY = f.read().strip()
 
 # Telegram bot info
-TELEGRAM_BOT_TOKEN = "6405568722:AAHijXOLIOAwiR5vhrhn7qlN4bITPb3tbB4"
+TELEGRAM_BOT_TOKEN = "7482058034:AAGnXDqvNVOZ5gle4Jw0YOMjG6JD4KnP1KI"
 TELEGRAM_CHAT_ID = "6644783233"
 
 # Koneksi ke jaringan Taiko
@@ -130,13 +130,13 @@ def auto_wrap_unwrap():
     last_wrap_amount_wei = 0  # Untuk menyimpan jumlah terakhir yang di-wrap dalam wei
     unwrap_count = 0
     max_unwrap_count = 104
-    tolerance_wei = web3.to_wei(Decimal("0.0000001"), 'ether')  # Toleransi perbedaan saldo dalam wei
+    tolerance_wei = 1  # Toleransi sangat kecil, hanya 1 wei
 
     while True:
         eth_balance_wei, weth_balance_wei = get_balances_in_wei()
         print(f"{Fore.CYAN}Saldo ETH: {web3.from_wei(eth_balance_wei, 'ether')} | Saldo WETH: {web3.from_wei(weth_balance_wei, 'ether')}")
         
-        # Bandingkan saldo ETH dan WETH dalam Wei dengan toleransi
+        # Bandingkan saldo ETH dan WETH dalam Wei dengan toleransi sangat kecil
         if eth_balance_wei > weth_balance_wei + tolerance_wei:
             # Wrap 90% dari saldo ETH
             wrap_amount_wei = eth_balance_wei * 90 // 100  # 90% dari saldo ETH dalam wei
