@@ -15,10 +15,8 @@ Nilai **wrap** dari ETH adalah 97% dari total nilai ETH yang tersedia. Nilai **u
 
 - [**Get License and Notifikasi**](https://t.me/Laporan_Sayang_bot)
 
-## Cara Menggunakan
+## Instalasi
 
-1. **Instalasi**: 
-   
    ```bash
    git clone https://github.com/dpangestuw/eeko.git
    ```
