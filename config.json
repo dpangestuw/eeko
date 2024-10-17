@@ -1,4 +1,6 @@
 {
     "telegram_chat_id": "ISI ID TELE",
-    "max_transactions": 104
+    "max_transactions": 97,
+    "rpc_url": "https://rpc.ankr.com/taiko",
+    "gwei": "0.05"
 }
