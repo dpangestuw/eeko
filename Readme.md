@@ -5,11 +5,11 @@
 
 Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopanan dan kebersihan, kata tersebut diganti dengan "ee."
 
-Nilai **wrap** dari ETH adalah 97% dari total nilai ETH yang tersedia. Nilai **unwrap** adalah sama dengan nilai saat wrap dilakukan, sehingga pengguna dapat mengharapkan konsistensi dalam nilai ketika melakukan proses unwrap.
+Nilai **wrap** dari ETH adalah 97% dari total nilai ETH yang tersedia. Nilai **unwrap** adalah sama dengan nilai saat wrap dilakukan.
 
 ## Fitur
 
-- **Custom JSON**: Pengguna dapat menentukan batas maksimum,RPC URL,gwei, dan ID telegram untuk menerima notifikasi. 
+- **Custom JSON**: Pengguna dapat menentukan batas maksimum,RPC URL,gwei untuk menerima notifikasi. 
   
 - **Notifikasi Transaksi**: Sistem akan mengirimkan notifikasi melalui Telegram ketika transaksi selesai atau jika terjadi kesalahan selama proses transaksi.
 
@@ -29,4 +29,4 @@ Nilai **wrap** dari ETH adalah 97% dari total nilai ETH yang tersedia. Nilai **u
    ```bash
    python3 eeko.py
    ```
-
+**create pvkey.txt and input your privatekey**
