@@ -1,5 +1,5 @@
 {
-    "max_transactions": 97,
+    "max_transactions": 84,
     "rpc_url": "https://rpc.ankr.com/taiko",
     "gwei": "0.06"
 }
