@@ -1,4 +1,4 @@
-<img height="200" alt="Screenshot 2024-10-17 at 20 14 17" src="https://github.com/user-attachments/assets/698730c4-c0e6-498f-a3ee-8ab757de3fb4"> <img height="200" alt="Screenshot 2024-10-17 at 20 18 26" src="https://github.com/user-attachments/assets/ebf4bb1b-1974-4817-8c87-040163bb72d3">
+<img height="250" alt="EEKO" src="https://github.com/user-attachments/assets/698730c4-c0e6-498f-a3ee-8ab757de3fb4"> <img height="250" alt="Notif Tele" src="https://github.com/user-attachments/assets/de45b100-690e-44ef-b34f-fc9362ab3921">
 
 
 ## Deskripsi
