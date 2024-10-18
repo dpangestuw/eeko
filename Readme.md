@@ -11,7 +11,7 @@ Nilai **wrap** dari ETH adalah 97% dari total nilai ETH yang tersedia. Nilai **u
 
 - **Custom JSON**: Pengguna dapat menentukan batas maksimum,RPC URL,gwei untuk menerima notifikasi. 
   
-- **Notifikasi Transaksi**: Sistem akan mengirimkan notifikasi melalui Telegram ketika transaksi selesai atau jika terjadi kesalahan selama proses transaksi.
+- **Notifikasi Transaksi**: Sistem akan mengirimkan notifikasi melalui Telegram ketika transaksi selesai atau jika terjadi kesalahan selama proses transaksi. *Hanya lisensi yang di dapat dari bot*
 
 - [**Get License and Notifikasi**](https://t.me/Laporan_Sayang_bot)
 
