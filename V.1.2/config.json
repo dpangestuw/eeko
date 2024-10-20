@@ -1,6 +1,6 @@
 {
     "min_gwei": 0.0525,
-    "max_gwei": 0.0625,
+    "max_gwei": 0.065,
     "gwei_increment": 0.00125,
     "total_transaction_fee": 0.0003679,
     "rpc_url": "https://rpc.ankr.com/taiko"
