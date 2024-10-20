@@ -22,6 +22,11 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
 
 - **eeko** : Versi Wrap/Unwrap TAIKO untuk fix *gwei*. Otomatis berhenti Wrap/Unwrap saat mencapai *max_transactions*.
 
+- **Anda bisa melanjutkan tx apabila terjadi gangguan, sesuai total tx fee terakhir** Misal total terakhir 0.0003
+  ```bash
+  python eeko.VDIN.py --fee 0.0003
+  ```
+
 - **Custom JSON**: Pengguna dapat memodifikasi nilai masing-masing variabel sesuai versi EEKO. 
   
 - **Notifikasi Transaksi**: Sistem akan mengirimkan notifikasi melalui Telegram ketika transaksi selesai atau jika terjadi kesalahan selama proses transaksi. *Hanya lisensi yang di dapat dari bot*
