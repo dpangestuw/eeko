@@ -8,7 +8,13 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
 
 ## Fitur
 
-- **Custom JSON**: Pengguna dapat menentukan batas maksimum,RPC URL,gwei untuk menerima notifikasi. 
+- **eeko.VDIN** : Versi Wrap/Unwrap TAIKO untuk gwei dinamis. Otomatis berhenti Wrap/Unwrap saat mencapai maksimal fee *"total_transaction_fee"*.
+
+- **eeko.VINC** : Versi Wrap/Unwrap TAIKO untuk kenaikan gwei, dimulai dari *"min_gwei"* dengan kelipatan *"gwei_increment"* dengan maksimal gwei *"max_gwei"*. Otomatis berhenti Wrap/Unwrap saat mencapai maksimal fee *"total_transaction_fee"*.
+
+- **eeko** : Versi Wrap/Unwrap TAIKO untuk fix gwei *"gwei"*. Otomatis berhenti Wrap/Unwrap saat mencapai transaksi max *"max_transactions"*.
+
+- **Custom JSON**: Pengguna dapat menentukan memodifikasi nilai masing-masing.
   
 - **Notifikasi Transaksi**: Sistem akan mengirimkan notifikasi melalui Telegram ketika transaksi selesai atau jika terjadi kesalahan selama proses transaksi. *Hanya lisensi yang di dapat dari bot*
 
