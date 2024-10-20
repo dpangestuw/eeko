@@ -1,10 +1,18 @@
-<img height="250" alt="EEKO" src="https://github.com/user-attachments/assets/698730c4-c0e6-498f-a3ee-8ab757de3fb4"> <img height="250" alt="Notif Tele" src="https://github.com/user-attachments/assets/de45b100-690e-44ef-b34f-fc9362ab3921">
-
 
 ## Deskripsi
 
 Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopanan dan kebersihan, kata tersebut diganti dengan "ee."
 
+<details>
+<summary><strong>Screenshots</strong></summary>
+
+![EEKO.VINC](https://github.com/user-attachments/assets/2dfaca39-93f8-4eb1-a68c-28bd05da7c92)
+
+![EEKO.VDIN](https://github.com/user-attachments/assets/5b447a88-2740-4d7d-939a-d6b9c1a46f0f)
+
+![EEKO](https://github.com/user-attachments/assets/eed3936e-1b72-49b5-9cf6-0e684541f543)
+
+</details>
 
 ## Fitur
 
@@ -19,6 +27,7 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
 - **Notifikasi Transaksi**: Sistem akan mengirimkan notifikasi melalui Telegram ketika transaksi selesai atau jika terjadi kesalahan selama proses transaksi. *Hanya lisensi yang di dapat dari bot*
 
 - [**Get License and Notifikasi**](https://t.me/Laporan_Sayang_bot)
+
 
 ## Instalasi
 
