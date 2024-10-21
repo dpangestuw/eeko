@@ -16,11 +16,11 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
 
 ## Fitur
 
-- **eeko.VDIN** : Versi EEKO dengan gwei dinamis. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*.
+- **eeko.VDIN** : Versi EEKO dengan gwei dinamis. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*. **(Simple)**
 
-- **eeko.VINC** : Versi EEKO dengan kenaikan gwei yang dimulai dari *min_gwei* dengan kelipatan *gwei_increment* dengan *max_gwei*. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*.
+- **eeko.VINC** : Versi EEKO dengan kenaikan gwei yang dimulai dari *min_gwei* dengan kelipatan *gwei_increment* dengan *max_gwei*. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*. **(Agak Ribet)**
 
-- **eeko.VUP** : Versi EEKO dengan gwei dinamis. Namun akan ada peningkatan 0.0005 apabila melebihi batas waktu, dengan maksimal +0.005 dari gwei jaringan. Pengecekan gwei apabila diatas 0.08 akan menunggu hingga dibawah itu baru melanjutkan transaksi. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*.
+- **eeko.VUP** : Versi EEKO dengan gwei dinamis. Namun akan ada peningkatan 0.0005 apabila melebihi batas waktu, dengan maksimal +0.005 dari gwei jaringan. Pengecekan gwei apabila diatas 0.08 akan menunggu hingga dibawah itu baru melanjutkan transaksi. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*. ***(Safety)***
 
 - **Anda bisa melanjutkan tx apabila terjadi gangguan, sesuai total tx fee terakhir** Misal total terakhir 0.00003
   ```bash
