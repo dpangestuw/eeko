@@ -6,11 +6,9 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
 <details>
 <summary><strong>Screenshots</strong></summary>
 
-![EEKO.VINC](https://github.com/user-attachments/assets/2dfaca39-93f8-4eb1-a68c-28bd05da7c92)
-
-![EEKO.VDIN](https://github.com/user-attachments/assets/5b447a88-2740-4d7d-939a-d6b9c1a46f0f)
-
-![EEKO](https://github.com/user-attachments/assets/eed3936e-1b72-49b5-9cf6-0e684541f543)
+<img height="311" alt="image" src="https://github.com/user-attachments/assets/2dfaca39-93f8-4eb1-a68c-28bd05da7c92">
+<img height="311" alt="image" src="https://github.com/user-attachments/assets/5b447a88-2740-4d7d-939a-d6b9c1a46f0f">
+<img height="415" alt="image" src="https://github.com/user-attachments/assets/8b81c702-8082-4ef1-aaf7-55aa80946e73">
 
 </details>
 
