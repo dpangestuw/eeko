@@ -16,18 +16,18 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
 
 ## Fitur
 
-- **eeko.VDIN** : Versi Wrap/Unwrap TAIKO untuk gwei dinamis. Otomatis berhenti Wrap/Unwrap saat mencapai maksimal *total_transaction_fee*.
+- **eeko.VDIN** : Versi EEKO dengan gwei dinamis. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*.
 
-- **eeko.VINC** : Versi Wrap/Unwrap TAIKO untuk kenaikan gwei, dimulai dari *min_gwei* dengan kelipatan *gwei_increment* dengan *max_gwei*. Otomatis berhenti Wrap/Unwrap saat mencapai maksimal *total_transaction_fee*.
+- **eeko.VINC** : Versi EEKO dengan kenaikan gwei yang dimulai dari *min_gwei* dengan kelipatan *gwei_increment* dengan *max_gwei*. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*.
 
-- **eeko** : Versi Wrap/Unwrap TAIKO untuk fix *gwei*. Otomatis berhenti Wrap/Unwrap saat mencapai *max_transactions*.
+- **eeko.VUP** : Versi EEKO dengan gwei dinamis. Namun akan ada peningkatan 0.0005 apabila melebihi batas waktu, dengan maksimal +0.005 dari gwei jaringan. OOtomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*. **(Recommended)**
 
-- **Anda bisa melanjutkan tx apabila terjadi gangguan, sesuai total tx fee terakhir** Misal total terakhir 0.0003
+- **Anda bisa melanjutkan tx apabila terjadi gangguan, sesuai total tx fee terakhir** Misal total terakhir 0.00003
   ```bash
-  python eeko.VDIN.py --fee 0.0003
+  python eeko.VDIN.py --fee 0.00003
   ```
 
-- **Custom JSON**: Pengguna dapat memodifikasi nilai masing-masing variabel sesuai versi EEKO. 
+- **Custom JSON**: Pengguna dapat memodifikasi nilai variabel yang dicetak miring sesuai versi EEKO. 
   
 - **Notifikasi Transaksi**: Sistem akan mengirimkan notifikasi melalui Telegram ketika transaksi selesai atau jika terjadi kesalahan selama proses transaksi. *Hanya lisensi yang di dapat dari bot*
 
