@@ -24,7 +24,7 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
 
 - **Anda bisa melanjutkan tx apabila terjadi gangguan, sesuai total tx fee terakhir** Misal total terakhir 0.00003
   ```bash
-  python eeko.VDIN.py --fee 0.00003
+  python eeko.VUP.py --fee 0.00003
   ```
 
 - **Custom JSON**: Pengguna dapat memodifikasi nilai variabel *yang dicetak miring* sesuai versi EEKO. 
