@@ -3,8 +3,9 @@
 
 Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopanan dan kebersihan, kata tersebut diganti dengan "ee."
 
+## Screenshots
 <details>
-<summary><strong>Screenshots</strong></summary>
+<summary><strong>Cek detail</strong></summary>
 
 <img height="311" alt="image" src="https://github.com/user-attachments/assets/2dfaca39-93f8-4eb1-a68c-28bd05da7c92">
 <img height="311" alt="image" src="https://github.com/user-attachments/assets/5b447a88-2740-4d7d-939a-d6b9c1a46f0f">
