@@ -25,7 +25,7 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
   python eeko.VDIN.py --fee 0.00003
   ```
 
-- **Custom JSON**: Pengguna dapat memodifikasi nilai variabel yang dicetak miring sesuai versi EEKO. 
+- **Custom JSON**: Pengguna dapat memodifikasi nilai variabel *yang dicetak miring* sesuai versi EEKO. 
   
 - **Notifikasi Transaksi**: Sistem akan mengirimkan notifikasi melalui Telegram ketika transaksi selesai atau jika terjadi kesalahan selama proses transaksi. *Hanya lisensi yang di dapat dari bot*
 
