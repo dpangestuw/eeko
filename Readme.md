@@ -16,7 +16,7 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
 
 ## Fitur EEKO
 
-- Gwei dinamis. *limit tertinggi 0.111*
+- Gwei dinamis. *anda bisa set limit tertinggi dengan menggunakan (--gass 0.1), default 0.111*
 - Otomatis menyimpan count dan total fee, dan memuat apabila melanjutkan transaksi.
 - Otomatis berhenti Wrap/Unwrap saat mencapai total transaction fee.
 
