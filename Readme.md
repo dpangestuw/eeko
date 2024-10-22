@@ -14,21 +14,12 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
 
 </details>
 
-## Fitur
+## Fitur EEKO
 
-- **eeko.VDIN** : Versi EEKO dengan gwei dinamis. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*.
+- Gwei dinamis. *anda bisa set limit tertinggi dengan menggunakan (--gass 0.1), default 0.111*
+- Otomatis menyimpan count dan total fee, dan memuat apabila melanjutkan transaksi.
+- Otomatis berhenti Wrap/Unwrap saat mencapai total transaction fee.
 
-- **eeko.VINC** : Versi EEKO dengan kenaikan gwei yang dimulai dari *min_gwei* dengan kelipatan *gwei_increment* dengan *max_gwei*. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*.
-
-- **eeko.VUP** : Versi EEKO dengan gwei dinamis. Namun akan ada peningkatan 0.0001 apabila melebihi batas waktu, dengan maksimal +0.0015 dari gwei jaringan. Otomatis berhenti Wrap/Unwrap saat mencapai *total_transaction_fee*. ***(Recommended)***
-
-- **Anda bisa melanjutkan tx apabila terjadi gangguan, sesuai total tx fee terakhir** Misal total terakhir 0.00003
-  ```bash
-  python eeko.VUP.py --fee 0.00003
-  ```
-
-- **Custom JSON**: Pengguna dapat memodifikasi nilai variabel *yang dicetak miring* sesuai versi EEKO. 
-  
 - **Notifikasi Transaksi**: Sistem akan mengirimkan notifikasi melalui Telegram ketika transaksi selesai atau jika terjadi kesalahan selama proses transaksi.
 
 - [**Get License and Notifikasi**](https://t.me/Laporan_Sayang_bot)
@@ -46,6 +37,6 @@ Dalam bahasa Jawa, kata "tai" memiliki arti kotor, sehingga untuk menjaga kesopa
    cd eeko
    ```
    ```bash
-   python3 eeko.VUP.py
+   python3 EEKO.py
    ```
 **create pvkey.txt and input your privatekey**
