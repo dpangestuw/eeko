@@ -17,8 +17,8 @@ That’s why this program is named **"EEKO"** instead of **"TAIKO."**
 
 ## EEKO Features
 
-- **Voting Mode (Low-Fee Transactions)**: If the gas fee is above the specified limit, the script switches to a voting method. This helps reduce transaction costs, but does not accrue point rewards.
-- **Wrap/Unwrap Mode (Earn Points)**: When the gas fee drops below the specified limit, the script returns to using the wrap/unwrap method. This allows point rewards to be collected with each transaction.
+- **Voting Mode (Low-Fee Transactions)**: If the gas fee is above the specified limit, the script switches to a voting method. This helps reduce transaction costs, but does not accrue point value.
+- **Wrap/Unwrap Mode (Earn Points)**: When the gas fee drops below the specified limit, the script returns to using the wrap/unwrap method. This allows point value to be collected with each transaction.
 - **Automatic Count and Fee Tracking**: The system saves transaction counts and total fees, allowing you to resume transactions seamlessly.
 - **Auto Stop for Wrap/Unwrap**: The process halts once the total transaction fee is reached.
 - **Transaction Notifications**: The system will send notifications via Telegram when transactions are completed or if any errors occur during the process
