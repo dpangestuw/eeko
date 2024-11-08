@@ -15,14 +15,22 @@ That’s why this program is named **"EEKO"** instead of **"TAIKO."**
 
 </details>
 
-## Fitur EEKO
+## EEKO Features
 
+- **Voting Mode (Low-Fee Transactions)**: If the gas fee is above the specified limit, the script switches to a voting method. This helps reduce transaction costs, but does not accrue point rewards.
+- **Wrap/Unwrap Mode (Earn Points)**: When the gas fee drops below the specified limit, the script returns to using the wrap/unwrap method. This allows point rewards to be collected with each transaction.
 - **Automatic Count and Fee Tracking**: The system saves transaction counts and total fees, allowing you to resume transactions seamlessly.
 - **Auto Stop for Wrap/Unwrap**: The process halts once the total transaction fee is reached.
 - **Transaction Notifications**: The system will send notifications via Telegram when transactions are completed or if any errors occur during the process
 - [**Get License and Notifications**](https://t.me/Laporan_Sayang_bot)
 
-## Command-Line Arguments
+## VOTE_EEKO Features
+
+- **Controlled Transaction Spam**: Send a specific number of transactions, as specified by the user. This feature enables targeted transaction spamming.
+- **Fee Limit Control**: The script includes a fee limit mechanism to ensure that transactions do not exceed the maximum amount you are willing to pay in fees. This allows for predictable transaction costs and prevents unintentional over-spending.
+
+
+## Command-Line EEKO Arguments
 
 - `--gass FLOAT`  
   **Default:** `0.111`  
