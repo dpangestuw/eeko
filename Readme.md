@@ -26,10 +26,9 @@ That’s why this program is named **"EEKO"** instead of **"TAIKO."**
 
 ## VOTE_EEKO Features
 
-**Before voting, ensure that the balance is in ETH to avoid a shortage of transaction fees.**
+- **Before voting, ensure that the balance is in ETH to avoid a shortage of transaction fees.**
 
 - **Controlled Transaction Spam**: Send a specific number of transactions, as specified by the user. This feature enables targeted transaction spamming.
-- **Fee Limit Control**: The script includes a fee limit mechanism to ensure that transactions do not exceed the maximum amount you are willing to pay in fees. This allows for predictable transaction costs and prevents unintentional over-spending.
 
 
 ## Command-Line EEKO Arguments
