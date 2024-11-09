@@ -33,11 +33,11 @@ That’s why this program is named **"EEKO"** instead of **"TAIKO."**
 
 ## Command-Line EEKO Arguments
 
-- `--gass FLOAT`  
+- `--gass (limit gas price)`  
   **Default:** `0.111`  
   The gas price threshold in Gwei. This determines the maximum gas price to pay for transactions.
 
-- `--limit FLOAT`  
+- `--limit (limit total fee)`  
   **Default:** `0.00036`  
   The total transaction fee limit in ETH. This value controls when to stop wrapping or unwrapping based on the accumulated fees.
 
